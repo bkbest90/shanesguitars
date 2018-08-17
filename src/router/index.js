@@ -4,7 +4,7 @@ import guitars from '@/components/guitars'
 import customizer from '@/components/customizer'
 import about from '@/components/about'
 import home from '@/components/home'
-
+import shanesguitarsadmin1860 from '@/components/shanesguitarsadmin1860'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +28,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: about
+    },
+    {
+      path: '/shanesguitarsadmin1860',
+      name: 'Admin',
+      component: shanesguitarsadmin1860
     }
   ]
 })

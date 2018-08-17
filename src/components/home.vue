@@ -1,34 +1,108 @@
 <template>
   <div class="hello">
-    {{scrollToTop()}}
-    <!-- Top Bar Not Fixed -->
+    <h3 v-if="firstTop == false">{{scrollToTop()}}</h3>
+    <!-- Mobile View -->
+<div v-if="screenWidth <= 1024 && screenWidth> 800">
+  {{changeFoot ('ipad pro')}}
+      <!-- Top Bar Not Fixed -->
     <div class="w3-container w3-center w3-animate-top" v-if="fixedTop == false" >
       <router-link to="/">
-      <img src="../assets/Shane's logo.png" width="15%" height="auto" style="margin-top:-33px">
+        <img src="../assets/Shane's logo.png" width="25%" height="auto" style="margin-top:-40px">
       </router-link>
       <br>
-      <router-link to="/"><button class="buttonL button4">HOME</button></router-link>
-      <router-link to="/guitars"><button class="buttonL button4">GUITARS</button></router-link>
-      <router-link to="/customizer"><button class="buttonL button4">CUSTOMIZE</button></router-link>
-      <router-link to="/about"><button class="buttonL button4">ABOUT</button></router-link>
-      <div style="margin-top:-100px;text-align: right"><button class="buttonM button4">EN/TH</button></div>
-    </div>
+      <div style="margin-bottom:-10px;margin-top:-15px">
+        <router-link to="/"><button style="font-size:27px;color:black;padding: 10px 10px" class="buttonL button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:27px;padding: 10px 10px" class="buttonL button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:27px;padding: 10px 10px" class="buttonL button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:27px;padding: 10px 10px" class="buttonL button4">ABOUT</button></router-link>
+      </div>
+    </div><br>
       <!-- Top Bar Fixed -->
-    <div id="bgTop" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="background-size: auto;margin-top:0px;background-color:white">
-      <div style="text-align:left;margin-top:0px">
+    <div id="bgTop" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="height:100px;background-size: auto;background-color:white">
+      <div style="text-align:left;margin-top:10px;margin-left:-70px">
         <router-link to="/">
-      <img src="../assets/Shane's logo.png" width="10%" height="auto" style="margin-left:100px;margin-top:-28px">
-      </router-link>
+          <img src="../assets/Shane's logo.png" width="20%" height="auto" style="margin-left:100px;margin-top:-28px">
+        </router-link>
       </div>
-      <div style="margin-top:-60px">
-        <router-link to="/"><button class="buttonM button4">HOME</button></router-link>
-        <router-link to="/guitars"><button class="buttonM button4">GUITARS</button></router-link>
-      <router-link to="/customizer"><button class="buttonM button4">CUSTOMIZE</button></router-link>
-      <router-link to="/about"><button class="buttonM button4">ABOUT</button></router-link>
-      <div style="margin-top:-89px;text-align: right"><button class="buttonM button4">EN/TH</button></div>
+      <div style="margin-top:-75px;margin-left:250px">
+        <router-link to="/"><button style="font-size:27px;color:black;" class="buttonM button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:27px" class="buttonM button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:27px" class="buttonM button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:27px" class="buttonM button4">ABOUT</button></router-link>
       </div>
     </div>
-    <div style="margin-top:-20px" id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+    <div style="margin-top:-2.45%" id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner" >
+        <center>
+        <div class="carousel-item active ">
+          <img class="d-block" src="../assets/slide-36.jpg" width="95%" height="auto">
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-19.jpg" width="95%" height="auto">
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-52.jpg"  width="95%" height="auto">
+        </div>
+        </center>
+      </div>
+      <a style="margin-top:10%" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a style="margin-top:10%" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <ol style="bottom:-25%;" class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
+      </ol>
+    </div>
+    </div>
+<!-- For less than 700 screen -->
+<div v-if="screenWidth <= 800 && screenWidth >= 350">
+  {{changeFoot ('mobile 5.5')}}
+      <div class="w3-container w3-center w3-animate-top" v-if="fixedTop == false && scrolledTop">
+      <router-link to="/">
+        <img src="../assets/Shane's logo.png" width="48%" height="auto" style="margin-top:-60px">
+      </router-link>
+      <div style="text-align:center;padding:7px 0px">
+        <router-link to="/"><button style="font-size:16px;width:16%" class="button4 buttonMobile">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:16px;width:25%" class="button4 ">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:16px;width:33%" class="button4 ">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:16px;width:18%" class="button4 ">ABOUT</button></router-link>
+      </div>
+      </div>
+      <div id="bgTop app" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="width:111%;margin-left:-17px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <router-link to="/">
+         <img src="../assets/Shane's logo.png" width="100px" height="auto" >
+        </router-link>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style="margin-top:10px" id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <router-link to="/"><button style="background-color:#F8F9FA;font-size:18px;width:25%" class="button4 buttonMobile">HOME<span class="sr-only">(current)</span></button></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/guitars"><a style="font-size:18px" class="nav-link">GUITARS</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/customizer"><a style="font-size:18px" class="nav-link">CUSTOMIZE</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/about"><a style="font-size:18px" class="nav-link">ABOUT</a></router-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
+      <div style="text-align:center;padding:7px 2px">
+      </div>
+    </div>
+    <div style="margin-top:0px" id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" >
         <div class="carousel-item active ">
           <center>
@@ -41,21 +115,262 @@
           <img class="d-block " src="../assets/slide-52.jpg"  width="100%" height="auto">
         </div>
       </div>
-      <a style="margin-top:140px" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <a style="margin-top:-318px" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span style="height:12px;margin-top:50px" class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a style="margin-top:140px" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <a style="margin-top:-318px" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span style="height:12px;margin-top:50px" class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-      <ol style="bottom:-80px;" class="carousel-indicators">
+      <ol style="bottom:255px;" class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
       </ol>
     </div>
+    </div>
+<!-- For less than 375 screen -->
+<div v-if="screenWidth < 350">
+  {{changeFoot ('iphone5')}}
+      <div class="w3-container w3-center w3-animate-top" v-if="fixedTop == false && scrolledTop">
+      <router-link to="/">
+        <img src="../assets/Shane's logo.png" width="48%" height="auto" style="margin-top:-60px">
+      </router-link>
+      <div style="text-align:center;padding:7px 2px">
+        <router-link to="/"><button style="color:black;font-size:13px;width:16%" class="button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:13px;width:23%" class="button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:13px;width:30%" class="button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:13px;width:18%" class="button4">ABOUT</button></router-link>
+      </div>
+      </div>
+      <div id="bgTop app" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="width:111%;margin-left:-17px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <router-link to="/">
+         <img src="../assets/Shane's logo.png" width="100px" height="auto" >
+        </router-link>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                     <router-link to="/"><button style="background-color:#F8F9FA;font-size:13px;width:15%" class="button4 buttonMobile">HOME<span class="sr-only">(current)</span></button></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/guitars"><a class="nav-link">GUITARS</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/customizer"><a class="nav-link">CUSTOMIZE</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/about"><a class="nav-link">ABOUT</a></router-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
+      <div style="text-align:center;padding:7px 2px">
+      </div>
+    </div>
+    <div style="margin-top:0px" id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner" >
+        <div class="carousel-item active ">
+          <center>
+          <img class="d-block" src="../assets/slide-36.jpg" style="margin-left:0" width="100%" height="auto"></center>
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-19.jpg" width="100%" height="auto">
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-52.jpg"  width="100%" height="auto">
+        </div>
+      </div>
+      <a style="margin-top:-318px" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span style="height:12px;margin-top:50px" class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a style="margin-top:-318px" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span style="height:12px;margin-top:50px" class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <ol style="bottom:268px;" class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
+      </ol>
+    </div>
+ </div>
+<!-- Mobile View -->
+<!-- Desktop View -->
+<div v-if="screenWidth > 1024">
+  {{changeFoot('desktop')}}
+    <!-- Top Bar Not Fixed -->
+    <div class="w3-container w3-center w3-animate-top" v-if="fixedTop == false" >
+      <router-link to="/">
+        <img src="../assets/Shane's logo.png" width="15%" height="auto" style="margin-top:-50px">
+      </router-link>
+      <br>
+      <div style="margin-bottom:-10px;margin-top:-15px">
+        <router-link to="/"><button style="font-size:20px;color:black;padding: 10px 10px" class="buttonL button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:20px;padding: 10px 10px" class="buttonL button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:20px;padding: 10px 10px" class="buttonL button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:20px;padding: 10px 10px" class="buttonL button4">ABOUT</button></router-link>
+      </div>
+    </div><br>
+      <!-- Top Bar Fixed -->
+    <div id="bgTop" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="height:80px;background-size: auto;margin-top:0px;background-color:white">
+      <div style="text-align:left;margin-top:0px">
+        <router-link to="/">
+          <img src="../assets/Shane's logo.png" width="13%" height="auto" style="margin-left:100px;margin-top:-24px">
+        </router-link>
+      </div>
+      <div style="margin-top:-65px;margin-left:65px">
+        <router-link to="/"><button style="font-size:19px;color:black;" class="buttonM button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:19px" class="buttonM button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:19px" class="buttonM button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:19px" class="buttonM button4">ABOUT</button></router-link>
+      </div>
+    </div>
+    <div style="margin-top:-2.45%" id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner" >
+        <center>
+        <div class="carousel-item active ">
+          <img class="d-block" src="../assets/slide-36.jpg" width="95%" height="auto">
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-19.jpg" width="95%" height="auto">
+        </div>
+        <div class="carousel-item ">
+          <img class="d-block " src="../assets/slide-52.jpg"  width="95%" height="auto">
+        </div>
+        </center>
+      </div>
+      <a style="margin-top:10%" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a style="margin-top:10%" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <ol style="bottom:-25%;" class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
+      </ol>
+    </div>
+</div>
+<!-- BR Content -->
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- Mobile iphone5 size -->
+<div v-if="deviceShow == 'iphone5'" style="color:black">
+    <div style="text-align: center">
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:30px;color:black" class="fa">&#xf230;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:30px;color:black" class="fa">&#xf16a;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:30px;color:black" class="fa">&#xf16d;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:26px;color:black" class="fa material-icons">&#xe0e1;</i></button>
+      </div> <br>
+      <div class="container">
+        <div style="font-size:15px" class="row">
+          <div class="col">
+          <b>one</b> <br>
+          saf <br>asfasflfgjdg
+          </div>
+          <div class="col">
+            <b>two</b> <br>
+            asf
+          </div>
+          <div class="col">
+            <b>three</b> <br>
+            asf
+          </div>
+        </div>
+      </div>
+      <br>
+ </div>
+<!-- Mobile 5.5 size -->
+<div v-if="deviceShow == 'mobile 5.5'" style="color:black">
+    <div style="text-align: center">
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:35px;color:black" class="fa">&#xf230;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:35px;color:black" class="fa">&#xf16a;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:35px;color:black" class="fa">&#xf16d;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:30px;color:black" class="fa material-icons">&#xe0e1;</i></button>
+      </div> <br>
+      <div class="container">
+        <div style="font-size:15px" class="row">
+          <div class="col">
+          <b>one</b> <br>
+          saf <br>asfasflfgjdg
+          </div>
+          <div class="col">
+            <b>two</b> <br>
+            asf
+          </div>
+          <div class="col">
+            <b>three</b> <br>
+            asf
+          </div>
+        </div>
+      </div>
+      <br>
+ </div>
+<!-- IPAD Pro size -->
+<div v-if="deviceShow == 'ipad pro'" style="color:black">
+    <div style="text-align: center">
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:48px;color:black" class="fa">&#xf230;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:48px;color:black" class="fa">&#xf16a;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:48px;color:black" class="fa">&#xf16d;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:40px;color:black" class="fa material-icons">&#xe0e1;</i></button>
+      </div> <br>
+      <div class="container">
+        <div style="font-size:22px" class="row">
+          <div class="col">
+          <b>one</b> <br>
+          saf <br>asfasflfgjdg
+          </div>
+          <div class="col">
+            <b>two</b> <br>
+            asf
+          </div>
+          <div class="col">
+            <b>three</b> <br>
+            asf
+          </div>
+        </div>
+      </div>
+      <br>
+ </div>
+<!-- Desktop foot -->
+<div v-if="deviceShow == 'desktop'" style="color:black">
+    <div style="text-align: center">
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:40px;color:black" class="fa">&#xf230;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:40px;color:black" class="fa">&#xf16a;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:40px;color:black" class="fa">&#xf16d;</i></button>
+        <button class="btn-outline-light" style="border: 0px;background-color:white"><i style="font-size:34px;color:black" class="fa material-icons">&#xe0e1;</i></button>
+      </div> <br>
+      <div class="container">
+        <div style="font-size:20px" class="row">
+          <div class="col">
+          <b>one</b> <br>
+          saf <br>asfasflfgjdg
+          </div>
+          <div class="col">
+            <b>two</b> <br>
+            asf
+          </div>
+          <div class="col">
+            <b>three</b> <br>
+            asf
+          </div>
+        </div>
+      </div>
+      <br>
+ </div>
+    Developed by Chayanut Pasing
+<!-- Desktop View #F8F9FA -->
   </div>
 </template>
 
@@ -66,12 +381,22 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       scerolled: false,
-      fixedTop: false
+      fixedTop: false,
+      firstTop: false,
+      screenWidth: 0,
+      scrolledTop: false,
+      deviceShow: ''
     }
   },
   methods: {
+    changeFoot (device) {
+      this.deviceShow = device
+    },
     scrollToTop () {
+      this.scrolledTop = true
+      this.screenWidth = screen.width
       window.scrollTo(0, 0)
+      this.firstTop = true
     },
     onSlideStart (slide) {
       this.sliding = true
@@ -80,10 +405,13 @@ export default {
       this.sliding = false
     },
     handleScroll () {
-      this.scrolled = window.scrollY > 0
+      this.scrolled = window.scrollY > 10
+      this.scrolledTop = window.scrollY < 5
       if (this.scrolled) {
         this.fixedTop = true
       } else if (this.scrolled === false) {
+        this.fixedTop = false
+      } else if (this.scrolledTop === true) {
         this.fixedTop = false
       }
     }
@@ -122,7 +450,7 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 25px 2px;
+    margin: 25px 15px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -130,20 +458,19 @@ a {
 .buttonM {
     background-color: #4CAF50; /* Green */
     border: none;
-    color: white;
     padding: 7px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 25px 2px;
+    margin: 25px 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
 }
 .button4 {
     background-color: white;
-    color: black;
+    color: #808080;
     border: 0px solid #e7e7e7;
 }
 
@@ -171,5 +498,10 @@ a {
     padding: 29px;
     background-repeat: no-repeat;
     background-size: auto;
+}
+.buttonMobile {
+  padding: 1px 1px;
+  text-align: center;
+  color: black;
 }
 </style>

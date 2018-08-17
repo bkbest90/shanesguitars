@@ -1,20 +1,26 @@
 <template>
   <div class="hello">
-    {{scrollToTop()}}
-    <div v-if="fixedTop == false" >
+    <h3 v-if="firstTop == false">{{scrollToTop()}}</h3>
+    <!-- Top Bar Not Fixed -->
+    <!-- Transition -->
+    <div class="w3-container w3-center w3-animate-top" v-if="fixedTop == false">
       <router-link to="/">
-      <img src="../assets/Shane's logo.png" width="15%" height="auto" style="margin-top:-33px">
+      <img src="../assets/Shane's logo.png" width="15%" height="auto" style="margin-top:-50px">
       </router-link>
       <br>
-      <router-link to="/"><button class="buttonM button4">HOME</button></router-link>
-      <router-link to="/guitars"><button class="buttonM button4">GUITARS</button></router-link>
-      <router-link to="/customizer"><button class="buttonM button4">CUSTOMIZE</button></router-link>
-      <router-link to="/about"><button class="buttonM button4">ABOUT</button></router-link>
-    </div>
-    <div id="bgTop" v-if="fixedTop == true" class="top" style="background-size: auto;margin-top:-3px;background-color:white">
+      <div style="margin-top:-20px">
+        <router-link to="/"><button class="buttonL button4">HOME</button></router-link>
+        <router-link to="/guitars"><button class="buttonL button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button class="buttonL button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button class="buttonL button4">ABOUT</button></router-link>
+      </div>
+      <div style="margin-top:-100px;text-align: right"><button class="buttonM button4">EN/TH</button></div>
+    </div><br>
+      <!-- Top Bar Fixed -->
+    <div id="bgTop" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="background-size: auto;margin-top:0px;background-color:white">
       <div style="text-align:left;margin-top:0px">
         <router-link to="/">
-      <img src="../assets/Shane's logo.png" width="15%" height="auto" style="margin-left:20px;margin-top:-33px">
+      <img src="../assets/Shane's logo.png" width="10%" height="auto" style="margin-left:100px;margin-top:-28px">
       </router-link>
       </div>
       <div style="margin-top:-60px">
@@ -22,37 +28,14 @@
         <router-link to="/guitars"><button class="buttonM button4">GUITARS</button></router-link>
       <router-link to="/customizer"><button class="buttonM button4">CUSTOMIZE</button></router-link>
       <router-link to="/about"><button class="buttonM button4">ABOUT</button></router-link>
+      <div style="margin-top:-89px;text-align: right"><button class="buttonM button4">EN/TH</button></div>
       </div>
     </div>
-    <hr>
-    <h1>GUITARS</h1>
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active ">
-          <center>
-          <img class="d-block" src="../assets/SG.jpg" style="margin-left:0" width="100%" height="auto"></center>
-        </div>
-        <div class="carousel-item ">
-          <img class="d-block " src="../assets/SGSpecial.jpg" width="100%" height="auto">
-        </div>
-        <div class="carousel-item ">
-          <img class="d-block " src="../assets/LTD.jpg"  width="100%" height="auto">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+    GUITARS
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </template>
@@ -64,12 +47,19 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       scerolled: false,
-      fixedTop: false
+      fixedTop: false,
+      firstTop: false
     }
   },
   methods: {
+    firstComeCheck () {
+      if (this.firstCome === 0) {
+        this.firstCome = 1
+      }
+    },
     scrollToTop () {
       window.scrollTo(0, 0)
+      this.firstTop = true
     },
     onSlideStart (slide) {
       this.sliding = true
@@ -83,7 +73,6 @@ export default {
         this.fixedTop = true
       } else if (this.scrolled === false) {
         this.fixedTop = false
-        console.log('top')
       }
     }
   },
@@ -112,16 +101,30 @@ li {
 a {
   color: black;
 }
-.buttonM {
+.buttonL {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 16px 15px;
+    padding: 20px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 25px 15px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.buttonM {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 25px 10px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -153,7 +156,7 @@ a {
   height: 23px;
 }
 #bgTop {
-    padding: 43px;
+    padding: 29px;
     background-repeat: no-repeat;
     background-size: auto;
 }
