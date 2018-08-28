@@ -35,25 +35,25 @@
       <div class="carousel-inner" >
         <center>
         <div class="carousel-item active ">
-          <img class="d-block" src="../assets/slide-36.jpg" width="95%" height="auto">
+          <img class="d-block" src="../assets/slide-36.jpg" width="100%" height="auto">
         </div>
         <div class="carousel-item ">
-          <img class="d-block " src="../assets/slide-19.jpg" width="95%" height="auto">
+          <img class="d-block " src="../assets/slide-19.jpg" width="100%" height="auto">
         </div>
         <div class="carousel-item ">
-          <img class="d-block " src="../assets/slide-52.jpg"  width="95%" height="auto">
+          <img class="d-block " src="../assets/slide-52.jpg"  width="100%" height="auto">
         </div>
         </center>
       </div>
-      <a style="margin-top:10%" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a style="margin-top:0px" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a style="margin-top:10%" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a style="margin-top:0px" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-      <ol style="bottom:-25%;" class="carousel-indicators">
+      <ol style="bottom:0px;" class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
@@ -137,11 +137,11 @@
       <router-link to="/">
         <img src="../assets/Shane's logo.png" width="48%" height="auto" style="margin-top:-60px">
       </router-link>
-      <div style="text-align:center;padding:7px 2px">
-        <router-link to="/"><button style="color:black;font-size:13px;width:16%" class="button4">HOME</button></router-link>
-        <router-link to="/guitars"><button style="font-size:13px;width:23%" class="button4">GUITARS</button></router-link>
-        <router-link to="/customizer"><button style="font-size:13px;width:30%" class="button4">CUSTOMIZE</button></router-link>
-        <router-link to="/about"><button style="font-size:13px;width:18%" class="button4">ABOUT</button></router-link>
+      <div style="margin-left:-10px;text-align:center;padding:7px 2px">
+        <router-link to="/"><button style="color:black;font-size:13px;width:45px" class="button4">HOME</button></router-link>
+        <router-link to="/guitars"><button style="font-size:13px;width:65px" class="button4">GUITARS</button></router-link>
+        <router-link to="/customizer"><button style="font-size:13px;width:90px" class="button4">CUSTOMIZE</button></router-link>
+        <router-link to="/about"><button style="font-size:13px;width:45px" class="button4">ABOUT</button></router-link>
       </div>
       </div>
       <div id="bgTop app" v-if="fixedTop == true" class="w3-container w3-center w3-animate-top top" style="width:111%;margin-left:-17px">
@@ -235,25 +235,25 @@
       <div class="carousel-inner" >
         <center>
         <div class="carousel-item active ">
-          <img class="d-block" src="../assets/slide-36.jpg" width="95%" height="auto">
+          <img class="d-block" src="../assets/slide-36.jpg" width="100%" height="auto">
         </div>
         <div class="carousel-item ">
-          <img class="d-block " src="../assets/slide-19.jpg" width="95%" height="auto">
+          <img class="d-block " src="../assets/slide-19.jpg" width="100%" height="auto">
         </div>
         <div class="carousel-item ">
-          <img class="d-block " src="../assets/slide-52.jpg"  width="95%" height="auto">
+          <img class="d-block " src="../assets/slide-52.jpg"  width="100%" height="auto">
         </div>
         </center>
       </div>
-      <a style="margin-top:10%" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a style="margin-top:255px" class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a style="margin-top:10%" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a style="margin-top:255px" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-      <ol style="bottom:-25%;" class="carousel-indicators">
+      <ol style="bottom:-170px;" class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" style="color:black"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
